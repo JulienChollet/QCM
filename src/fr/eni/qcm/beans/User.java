@@ -8,14 +8,31 @@ private String prenom;
 private String email;
 private String password;
 private Epreuve inscrit;
+private int profil;
+private String promotion;
 
-    public User(Integer idUser, String nom, String prenom, String email, String password, Epreuve inscrit) {
+    public User(Integer idUser, String nom, String prenom, String email, String password, Epreuve inscrit, int profil, String promotion) {
         this.idUser = idUser;
         this.nom = nom;
         this.prenom = prenom;
         this.email = email;
         this.password = password;
         this.inscrit = inscrit;
+        this.profil = profil;
+        this.promotion = promotion;
+    }
+
+    public User(Integer idUser, String nom, String prenom, String email, String password, Epreuve inscrit, int profil) {
+        this.idUser = idUser;
+        this.nom = nom;
+        this.prenom = prenom;
+        this.email = email;
+        this.password = password;
+        this.inscrit = inscrit;
+        this.profil = profil;
+    }
+
+    public User() {
     }
 
     public Integer getIdUser() {
@@ -64,5 +81,21 @@ private Epreuve inscrit;
 
     public void setInscrit(Epreuve inscrit) {
         this.inscrit = inscrit;
+    }
+
+    public int getProfil() {
+        return profil;
+    }
+
+    public void setProfil(int profil) {
+        this.profil = profil;
+    }
+
+    public String getPromotion() {
+        return promotion;
+    }
+
+    public void setPromotion(String promotion) {
+        this.promotion = promotion;
     }
 }

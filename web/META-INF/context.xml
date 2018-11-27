@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<Context>
+    <Resource name="jdbc/pool_cnx"
+              type="javax.sql.DataSource"
+              driverClassName="com.microsoft.sqlserver.jdbc.SQLServerDriver"
+              url="jdbc:sqlserver://127.0.0.1:1433;database=BDD_QCM"
+              username="sa"
+              password="Pa$$w0rd"
+              maxTotal="50"
+              maxIdle="3"
+              maxWaitMillis="3000"
+    />
+</Context>

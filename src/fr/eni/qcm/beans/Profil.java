@@ -4,6 +4,7 @@ public class Profil {
     private String codeProfil;
     private String libelle;
 
+
     public String getCodeProfil() {
         return codeProfil;
     }
@@ -24,4 +25,5 @@ public class Profil {
         this.codeProfil = codeProfil;
         this.libelle = libelle;
     }
+
 }

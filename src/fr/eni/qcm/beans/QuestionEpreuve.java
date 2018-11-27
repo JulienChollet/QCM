@@ -2,11 +2,9 @@ package fr.eni.qcm.beans;
 
 public class QuestionEpreuve {
     private Boolean marquee;
-    private Epreuve questionsTireesAuSort;
 
-    public QuestionEpreuve(Boolean marquee, Epreuve questionsTireesAuSort) {
+    public QuestionEpreuve(Boolean marquee) {
         this.marquee = marquee;
-        this.questionsTireesAuSort = questionsTireesAuSort;
     }
 
     public Boolean getMarquee() {
@@ -17,11 +15,4 @@ public class QuestionEpreuve {
         this.marquee = marquee;
     }
 
-    public Epreuve getQuestionsTireesAuSort() {
-        return questionsTireesAuSort;
-    }
-
-    public void setQuestionsTireesAuSort(Epreuve questionsTireesAuSort) {
-        this.questionsTireesAuSort = questionsTireesAuSort;
-    }
 }

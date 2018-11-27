@@ -3,4 +3,27 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
          version="4.0">
+
+<resource-ref>
+    <res-ref-name>jdbc/pool_cnx</res-ref-name>
+    <res-type>javax.sql.DataSource</res-type>
+</resource-ref>
+
+<servlet>
+    <servlet-name>Index</servlet-name>
+    <jsp-file>/WEB-INF/index.jsp</jsp-file>
+</servlet>
+<servlet-mapping>
+    <servlet-name>Index</servlet-name>
+    <url-pattern>/index</url-pattern>
+</servlet-mapping>
+<servlet>
+    <servlet-name>Athentification</servlet-name>
+    <jsp-file>/WEB-INF/authentification.jsp</jsp-file>
+</servlet>
+<servlet-mapping>
+    <servlet-name>Athentification</servlet-name>
+    <url-pattern>/authentification</url-pattern>
+</servlet-mapping>
+
 </web-app>
