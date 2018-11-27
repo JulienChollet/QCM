@@ -1,4 +1,4 @@
-package fr.eni.qcm.bo;
+package fr.eni.qcm.beans;
 
 public class QuestionEpreuve {
     private Boolean marquee;
