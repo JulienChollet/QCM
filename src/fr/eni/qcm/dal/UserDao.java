@@ -10,7 +10,7 @@ import java.util.ArrayList;
 
 public class UserDao {
 
-    public static final String connectionQuery ="SELECT idUtilisateur, nom, prenom, email, password, codeProfil, codePromo FROM [BDD_QCM].[dbo].[UTILISATEUR] WHERE email = ?";
+    public static final String connectionQuery ="SELECT idUtilisateur, nom, prenom, email, password, codeProfil, codePromo FROM [BDD_QCM].[dbo].[UTILISATEUR] WHERE email = ?, password = ?";
 
     public static User rechercher(String mail, String password) throws SQLException, NamingException {
         Connection cnx = null;
@@ -34,6 +34,7 @@ public class UserDao {
                 utilisateur.setNom(rs.getString("nom"));
                 utilisateur.setPrenom(rs.getString("prenom"));
                 utilisateur.setEmail(rs.getString("email"));
+                utilisateur.setPassword(rs.getString("password"));
                 utilisateur.setProfil(rs.getInt("codeProfil"));
                 utilisateur.setPromotion(rs.getString("codePromo"));
 
