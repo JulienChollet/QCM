@@ -27,10 +27,18 @@
 </servlet-mapping>
 <servlet>
     <servlet-name>Question</servlet-name>
-    <jsp-file>/WEB-INF/authentification.jsp</jsp-file>
+    <jsp-file>/WEB-INF/pageQuestion.jsp</jsp-file>
 </servlet>
 <servlet-mapping>
     <servlet-name>Question</servlet-name>
     <url-pattern>/question</url-pattern>
 </servlet-mapping>
+    <servlet>
+        <servlet-name>candidat</servlet-name>
+        <jsp-file>/WEB-INF/accueilCandidat.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>candidat</servlet-name>
+        <url-pattern>/candidat</url-pattern>
+    </servlet-mapping>
 </web-app>

@@ -12,9 +12,9 @@ import javax.servlet.http.*;
 import java.io.IOException;
 import java.sql.SQLException;
 
-@WebServlet(name = "ServletAthentificataion", urlPatterns = "/gestionAuthentification")
+@WebServlet(name = "ServletAthentification", urlPatterns = "/gestionAuthentification")
 
-public class ServletAthentificataion extends HttpServlet {
+public class ServletAthentification extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         valider(request, response);
@@ -29,17 +29,14 @@ public class ServletAthentificataion extends HttpServlet {
 
         RequestDispatcher dispatcher;
         User userConnecte = null;
-
         userConnecte = (User)request.getAttribute("userConnecte");
-        System.out.println("coucocuocucoucouc");
 
 
         /**
          * Verification d'une connection existante
          */
         if (userConnecte != null) {
-            System.out.println("Connect� !");
-            redirectionMenuAnimateur(request, response);
+            redirectionCandidat(request, response);
             return;
         }
 
@@ -47,6 +44,7 @@ public class ServletAthentificataion extends HttpServlet {
          *
          * récupération des champs de connections
          */
+        HttpSession session = request.getSession();
         String mail = request.getParameter("mail");
         String mdp = request.getParameter("motdepasse");
         if ((mail == null) || (mail.length() == 0)
@@ -58,19 +56,19 @@ public class ServletAthentificataion extends HttpServlet {
         try {
             // Valider l'identification par rapport aux informations de la base
             userConnecte = UserDao.rechercher(mail, mdp);
-            System.out.println(userConnecte);
             // Si l'authentification est r�ussie...
             if (userConnecte != null) {
-                System.out.println("authentification reussie !");
                 // Placer le bean dans le contexte de session
+                request.setAttribute("session", session);
+                session.setAttribute("prenom",userConnecte.getPrenom());
+                session.setAttribute("nom",userConnecte.getNom());
+                session.setAttribute("mail", userConnecte.getEmail());
                 request.setAttribute("userConnecte", userConnecte);
-                System.out.println("userConnectee !" + userConnecte);
                 // Pr�senter la r�ponse
-                redirectionMenuAnimateur(request, response);
+                redirectionCandidat(request, response);
             }
             // ...sinon
             else {
-                System.out.println("Pas Connect� !");
                 // Retourner � l'�cran d'identification
                 dispatcher = getServletContext().getRequestDispatcher("/index");
                 dispatcher.forward(request, response);
@@ -85,7 +83,7 @@ public class ServletAthentificataion extends HttpServlet {
         }
     }
 
-    protected void redirectionMenuAnimateur(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
+    protected void redirectionCandidat(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
         {
 
             // En fonction de la m�thode de redirection utilis�e (forward ou sendRedirect()),
@@ -93,8 +91,7 @@ public class ServletAthentificataion extends HttpServlet {
 
             // L'utilisation d'un forward masque la nouvelle ressource demand�e (car tout
             // se passe au sein du serveur d'application)
-            System.out.println("Redirection !");
-            RequestDispatcher dispatcher = request.getRequestDispatcher("/question");
+            RequestDispatcher dispatcher = request.getRequestDispatcher("/candidat");
             dispatcher.forward(request, response);
 
             // L'utilisation d'un sendRedirect expose le nom de la page � l'utilisateur (car

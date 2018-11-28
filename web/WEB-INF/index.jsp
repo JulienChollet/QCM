@@ -9,10 +9,7 @@
 <html>
 <head>
     <title>Accueil</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="../resources/bootstrap/css/bootstrap.css">
-    <link rel="stylesheet" href="../resources/css/style.css">
-    <script src="../resources/bootstrap/js/bootstrap.min.js"></script>
+    <%@include file="head.jsp"%>
 </head>
 <body>
 <div class="jumbotron text-center">

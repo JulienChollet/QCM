@@ -27,7 +27,6 @@ public class UserDao {
             rqt.setString(2, password);
             rs=rqt.executeQuery();
 
-            System.out.println("2222222222222222");
            while (rs.next()){
                 utilisateur = new User();
                 utilisateur.setIdUser(rs.getInt("idUtilisateur"));

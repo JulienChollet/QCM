@@ -2,16 +2,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@page import="java.util.ArrayList"%>
-<%@page import="fr.eni.qcm.bo.Question"%>
+<%@page import="fr.eni.qcm.beans.Question"%>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
   <title> TP QCM </title>
   <meta charset="ISO-8859-1">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="${pageContext.request.contextPath}/theme/bootstrap/css/bootstrap.min.css">
-  <link rel="stylesheet" href="${pageContext.request.contextPath}/theme/css/style.css">
-  <script src="${pageContext.request.contextPath}/theme/bootstrap/js/bootstrap.min.js"></script>
+  <%@include file="head.jsp"%>
 </head>
 <body>
 
