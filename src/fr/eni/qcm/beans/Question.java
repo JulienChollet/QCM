@@ -6,7 +6,11 @@ import java.util.List;
 public class Question implements Serializable {
 
 
-    private Integer idQuestion;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private Integer idQuestion;
     private String enonce;
     private String image;
     private Integer points;
@@ -18,9 +22,24 @@ public class Question implements Serializable {
         this.image = image;
         this.points = points;
         this.themes = themes;
-    }
+    }    
+    
+    public Question(Integer idQuestion, String enonce, Integer points) {
+		super();
+		this.idQuestion = idQuestion;
+		this.enonce = enonce;
+		this.points = points;
+	}
 
-    public Integer getIdQuestion() {
+
+	public Question(Integer idQuestion, String enonce) {
+		super();
+		this.idQuestion = idQuestion;
+		this.enonce = enonce;
+	}
+
+
+	public Integer getIdQuestion() {
         return idQuestion;
     }
 

@@ -25,5 +25,12 @@
     <servlet-name>Athentification</servlet-name>
     <url-pattern>/authentification</url-pattern>
 </servlet-mapping>
-
+<servlet>
+    <servlet-name>Question</servlet-name>
+    <jsp-file>/WEB-INF/authentification.jsp</jsp-file>
+</servlet>
+<servlet-mapping>
+    <servlet-name>Question</servlet-name>
+    <url-pattern>/question</url-pattern>
+</servlet-mapping>
 </web-app>
