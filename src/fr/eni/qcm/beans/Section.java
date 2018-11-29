@@ -1,18 +1,13 @@
 package fr.eni.qcm.beans;
 
-import java.util.ArrayList;
 
 public class Section {
     private Integer idSection;
     private Integer nbQuestionsAttendues;
-    private static ArrayList<Test> sections;
+ 
 
-    public static Integer compte(){
-        return sections.size();
-    }
-
-    public Section(Integer idSection, Integer nbQuestionsAttendues) {
-        this.idSection = idSection;
+    public Section(Integer nbQuestionsAttendues) {
+        
         this.nbQuestionsAttendues = nbQuestionsAttendues;
     }
 
@@ -32,11 +27,10 @@ public class Section {
         this.nbQuestionsAttendues = nbQuestionsAttendues;
     }
 
-    public static ArrayList<Test> getSections() {
-        return sections;
-    }
+	@Override
+	public String toString() {
+		return "Section [idSection=" + idSection + ", nbQuestionsAttendues=" + nbQuestionsAttendues + "]";
+	}
 
-    public static void setSections(ArrayList<Test> sections) {
-        Section.sections = sections;
-    }
+   
 }

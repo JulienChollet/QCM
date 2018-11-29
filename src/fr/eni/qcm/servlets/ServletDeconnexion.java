@@ -1,5 +1,7 @@
 package fr.eni.qcm.servlets;
 
+import fr.eni.qcm.beans.User;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -12,14 +14,18 @@ import java.io.IOException;
 public class ServletDeconnexion extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        User userConnecte = (User)request.getSession().getAttribute("userConnecte");
+        if (userConnecte == null) {
+            request.getRequestDispatcher("/index").forward(request, response);
+            return;
+        }
 
-        HttpSession session = request.getSession();
         request.getParameter("mail");
-        if(session.getAttribute("mail") == null){
+        if(request.getSession().getAttribute("mail") == null){
             response.sendRedirect("/index");
         } else {
-            session.getAttribute("mail");
-            session.invalidate();
+            request.getSession().getAttribute("mail");
+            request.getSession().invalidate();
             response.sendRedirect("/index");
         }
     }

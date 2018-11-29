@@ -28,8 +28,9 @@ public class ServletAthentification extends HttpServlet {
     protected void valider(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         RequestDispatcher dispatcher;
-        User userConnecte = null;
-        userConnecte = (User)request.getAttribute("userConnecte");
+        User userConnecte;
+        HttpSession session = request.getSession();
+        userConnecte = (User)session.getAttribute("userConnecte");
 
 
         /**
@@ -44,7 +45,6 @@ public class ServletAthentification extends HttpServlet {
          *
          * récupération des champs de connections
          */
-        HttpSession session = request.getSession();
         String mail = request.getParameter("mail");
         String mdp = request.getParameter("motdepasse");
         if ((mail == null) || (mail.length() == 0)
@@ -59,10 +59,12 @@ public class ServletAthentification extends HttpServlet {
             // Si l'authentification est r�ussie...
             if (userConnecte != null) {
                 // Placer le bean dans le contexte de session
-                request.setAttribute("session", session);
+                request.setAttribute("session", request.getSession());
+                session.setAttribute("idConnecte", userConnecte.getIdUser());
                 session.setAttribute("prenom",userConnecte.getPrenom());
                 session.setAttribute("nom",userConnecte.getNom());
                 session.setAttribute("mail", userConnecte.getEmail());
+                session.setAttribute("profil",userConnecte.getProfil());
                 request.setAttribute("userConnecte", userConnecte);
                 // Pr�senter la r�ponse
                 redirectionCandidat(request, response);
@@ -70,14 +72,14 @@ public class ServletAthentification extends HttpServlet {
             // ...sinon
             else {
                 // Retourner � l'�cran d'identification
-                dispatcher = getServletContext().getRequestDispatcher("/index");
+                dispatcher = getServletContext().getRequestDispatcher("/erreur");
                 dispatcher.forward(request, response);
             }
         } catch (SQLException | NamingException sqle) {
             // Placer l'objet repr�sentant l'exception dans le contexte de requete
             request.setAttribute("erreur", sqle);
             // Passer la main � la page de pr�sentation des erreurs
-            dispatcher = getServletContext().getRequestDispatcher("/erreurPage");
+            dispatcher = getServletContext().getRequestDispatcher("/erreur");
             dispatcher.forward(request, response);
             return;
         }

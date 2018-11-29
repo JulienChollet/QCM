@@ -1,5 +1,7 @@
 package fr.eni.qcm.beans;
 
+import java.util.ArrayList;
+
 public class Test {
     private Integer idTest;
     private String nom;
@@ -7,8 +9,9 @@ public class Test {
     private Integer duree;
     private Float seuilHaut;
     private Float seuilBas;
+    private ArrayList<Section> sections;
 
-    private transient Integer totalQuestionPosees = Section.compte();
+    private transient Integer totalQuestionPosees;
 
     public void ajouter (QuestionEpreuve question){};
     public Section extraire (Integer index){
@@ -16,17 +19,27 @@ public class Test {
         return null;
     };
 
-    public Test(Integer idTest, String nom, String description, Integer duree, Float seuilHaut, Float seuilBas, Integer totalQuestionPosees) {
+    public Test(Integer idTest, String nom, String description, Integer duree, Float seuilHaut, Float seuilBas) {
         this.idTest = idTest;
         this.nom = nom;
         this.description = description;
         this.duree = duree;
         this.seuilHaut = seuilHaut;
         this.seuilBas = seuilBas;
-        this.totalQuestionPosees = totalQuestionPosees;
+        this.sections = new ArrayList<>();
     }
 
-    public Integer getIdTest() {
+    public ArrayList<Section> getSections() {
+		return sections;
+	}
+	public void setSections(ArrayList<Section> sections) {
+		this.sections = sections;
+		for (Section section : sections) {
+			this.totalQuestionPosees = this.totalQuestionPosees =  + section.getNbQuestionsAttendues();
+		}
+		
+	}
+	public Integer getIdTest() {
         return idTest;
     }
 

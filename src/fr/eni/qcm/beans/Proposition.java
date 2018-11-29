@@ -3,6 +3,7 @@ package fr.eni.qcm.beans;
 import java.util.List;
 
 public class Proposition {
+
 private Integer idReponse;
 private String libelle;
 private Boolean estCorrecte;
@@ -13,6 +14,11 @@ private List<Question> propositions;
         this.libelle = libelle;
         this.estCorrecte = estCorrecte;
         this.propositions = propositions;
+    }
+
+    public Proposition(Integer idReponse, String libelle) {
+        this.idReponse = idReponse;
+        this.libelle = libelle;
     }
 
     public Integer getIdReponse() {

@@ -32,6 +32,10 @@ public class Question implements Serializable {
 	}
 
 
+	public Question() {
+		super();
+	}
+
 	public Question(Integer idQuestion, String enonce) {
 		super();
 		this.idQuestion = idQuestion;

@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <title>QUESTIONNAIRE</title>
+  <title>Athentification</title>
   <meta charset="ISO-8859-1">
   <%@include file="head.jsp"%>
 </head>

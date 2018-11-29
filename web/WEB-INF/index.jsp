@@ -13,15 +13,15 @@
 </head>
 <body>
 <div class="jumbotron text-center">
-    <h1>TP Web - Accueil</h1>
-    <p>Centre de formation</p>
+    <h1> Accueil - QCM</h1>
+    <p>ENI école</p>
 </div>
 
 <div class="container">
     <div class="row">
         <div class="col-sm-9">
             <h3>Page d'accueil</h3>
-            <p>Bienvenue sur TP Web !</p>
+            <p>Bienvenue sur le QCM !</p>
             <p>Accédez à toutes les fonctionnalités qui vous sont autorisées en vous rendant sur votre rubrique d'accès (animateur ou candidat)</p>
             <p>Pour faire une recherche sur Google, utilisez le formulaire de recherche.</p>
         </div>

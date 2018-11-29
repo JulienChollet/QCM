@@ -4,35 +4,36 @@
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
          version="4.0">
 
-<resource-ref>
-    <res-ref-name>jdbc/pool_cnx</res-ref-name>
-    <res-type>javax.sql.DataSource</res-type>
-</resource-ref>
 
-<servlet>
-    <servlet-name>Index</servlet-name>
-    <jsp-file>/WEB-INF/index.jsp</jsp-file>
-</servlet>
-<servlet-mapping>
-    <servlet-name>Index</servlet-name>
-    <url-pattern>/index</url-pattern>
-</servlet-mapping>
-<servlet>
-    <servlet-name>Athentification</servlet-name>
-    <jsp-file>/WEB-INF/authentification.jsp</jsp-file>
-</servlet>
-<servlet-mapping>
-    <servlet-name>Athentification</servlet-name>
-    <url-pattern>/authentification</url-pattern>
-</servlet-mapping>
-<servlet>
-    <servlet-name>Question</servlet-name>
-    <jsp-file>/WEB-INF/pageQuestion.jsp</jsp-file>
-</servlet>
-<servlet-mapping>
-    <servlet-name>Question</servlet-name>
-    <url-pattern>/question</url-pattern>
-</servlet-mapping>
+    <resource-ref>
+        <res-ref-name>jdbc/pool_cnx</res-ref-name>
+        <res-type>javax.sql.DataSource</res-type>
+    </resource-ref>
+
+    <servlet>
+        <servlet-name>Index</servlet-name>
+        <jsp-file>/WEB-INF/index.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Index</servlet-name>
+        <url-pattern>/index</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>Athentification</servlet-name>
+        <jsp-file>/WEB-INF/authentification.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Athentification</servlet-name>
+        <url-pattern>/authentification</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>Question</servlet-name>
+        <jsp-file>/WEB-INF/pageQuestions.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Question</servlet-name>
+        <url-pattern>/question</url-pattern>
+    </servlet-mapping>
     <servlet>
         <servlet-name>candidat</servlet-name>
         <jsp-file>/WEB-INF/accueilCandidat.jsp</jsp-file>
@@ -41,4 +42,29 @@
         <servlet-name>candidat</servlet-name>
         <url-pattern>/candidat</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>erreur</servlet-name>
+        <jsp-file>/WEB-INF/erreur.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>erreur</servlet-name>
+        <url-pattern>/erreur</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>epreuves</servlet-name>
+        <jsp-file>/WEB-INF/epreuves.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>epreuves</servlet-name>
+        <url-pattern>/epreuves</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>resultats</servlet-name>
+        <jsp-file>/WEB-INF/resultats.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>resultats</servlet-name>
+        <url-pattern>/resultats</url-pattern>
+    </servlet-mapping>
+
 </web-app>
